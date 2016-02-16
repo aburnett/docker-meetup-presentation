@@ -1,0 +1,22 @@
+wordpress:
+  image: wordpress
+  cpu_shares: 100
+  mem_limit: 524288000
+  links:
+    - mysql
+mysql:
+  image: mysql
+  cpu_shares: 100
+  mem_limit: 524288000
+  environment:
+    MYSQL_ROOT_PASSWORD: password
+lb:
+  ports:
+  - 8080:80
+  labels:
+    io.rancher.scheduler.affinity:host_label: role=master
+  tty: true
+  image: rancher/load-balancer-service
+  links:
+  - wordpress:wordpress
+  stdin_open: true

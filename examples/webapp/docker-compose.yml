@@ -1,0 +1,12 @@
+web:
+  build: github.com/aburnett/docker-meetup-presentation#webappV1:examples/webapp
+lb:
+  ports:
+  - 8081:80
+  labels:
+    io.rancher.scheduler.affinity:host_label: role=master
+  tty: true
+  image: rancher/load-balancer-service
+  links:
+  - web:web
+  stdin_open: true

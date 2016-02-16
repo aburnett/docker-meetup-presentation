@@ -1,0 +1,10 @@
+lb:
+  scale: 1
+wordpress:
+  scale: 1
+  metadata:
+    io.rancher.service.hash: 4150024a39958119d1da0fb5d7fbf8155f4af4a1
+mysql:
+  scale: 1
+  metadata:
+    io.rancher.service.hash: 2718a43d0db07e2aee58d7a58e5f74106f9d9c43
